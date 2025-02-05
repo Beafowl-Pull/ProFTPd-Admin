@@ -23,7 +23,7 @@ CREATE TABLE `users` (
   `homedir` varchar(255) NOT NULL default '',
   `comment` varchar(255) NOT NULL default '',
   `disabled` smallint(2) unsigned NOT NULL default '0',
-  `shell` varchar(32) NOT NULL default '/sbin/nologin',
+  `shell` varchar(32) NOT NULL default '/bin/false',
   `email` varchar(255) NOT NULL default '',
   `name` varchar(255) NOT NULL default '',
   `title` varchar(5) NOT NULL default '',
@@ -63,5 +63,3 @@ CREATE TABLE `settings` (
     PRIMARY KEY (`id`),
     UNIQUE KEY `name_key` (`name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='ProFTPd settings table';
-
-
