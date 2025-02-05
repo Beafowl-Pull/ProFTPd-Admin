@@ -3,6 +3,6 @@
 /nbproject/
 /doctemp/
 /docs/
-/configs/config.php
 /configs/config_live.php
 /configs/config_old.php
+.idea

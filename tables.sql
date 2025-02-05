@@ -38,3 +38,30 @@ CREATE TABLE `users` (
   PRIMARY KEY  (`id`),
   UNIQUE KEY `userid` (`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='ProFTPd user table';
+
+CREATE TABLE `sftp_host_keys` (
+    `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `host` VARCHAR(256) NOT NULL DEFAULT '',
+    `sftp_key` VARCHAR(8192) NOT NULL DEFAULT '',
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `host_key` (`host`, `sftp_key`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='ProFTPd SFTP host public keys table';
+
+CREATE TABLE `sftp_keys` (
+    `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `user` VARCHAR(256) NOT NULL DEFAULT '',
+    `sftp_key` VARCHAR(8192) NOT NULL DEFAULT '',
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `user_key` (`user`, `sftp_key`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='ProFTPd SFTP public keys table';
+
+CREATE TABLE `settings` (
+    `id` TINYINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(255) NOT NULL DEFAULT '',
+    `value` TEXT NOT NULL,
+    `defval` VARCHAR(255) NOT NULL DEFAULT '',
+    PRIMARY KEY (`id`),
+    UNIQUE KEY `name_key` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci COMMENT='ProFTPd settings table';
+
+
